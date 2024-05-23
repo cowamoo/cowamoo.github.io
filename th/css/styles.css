@@ -1,0 +1,31 @@
+/* css styles */
+
+@font-face {
+  font-family: 'ZTChintzy';
+  src: url('../fonts/zt-chintzy/ZTChintzy-Heavy.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.navbar-title {
+  font-family: 'ZTChintzy', sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.quarto-title-banner {
+  padding-top: 62px; /* Adjust this value to match the height of your navbar */
+}
+
+main {
+  text-align: justify;
+}
+
+figcaption {
+  text-align: center;
+}
