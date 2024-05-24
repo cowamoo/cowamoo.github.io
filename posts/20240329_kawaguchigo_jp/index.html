@@ -113,19 +113,21 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-D5RWZ9VFH7', { 'anonymize_ip': true});
 </script>
-</head><body class="nav-fixed fullcontent">// Select all external links in the navbar
+<script>
+// Select all external links in the navbar
 const navbarLinks = document.querySelectorAll('.navbar a[href^="http"]');
 
 // Add target="_blank" to each external link
-navbarLinks.forEach(link =&gt; {
+navbarLinks.forEach(link => {
   link.setAttribute('target', '_blank');
 });
+</script>
 
 
 <link rel="stylesheet" href="../../css/styles.css">
+</head>
 
-
-
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
