@@ -118,6 +118,13 @@ gtag('config', 'G-D5RWZ9VFH7', { 'anonymize_ip': true});
 <script>
 // Custom Script 
 
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    this.target = '_blank';
+  });
+});
 
 </script>
 
