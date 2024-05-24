@@ -30,3 +30,7 @@ main {
 figcaption {
   text-align: center;
 }
+
+.social-share {
+  float: right;
+}
