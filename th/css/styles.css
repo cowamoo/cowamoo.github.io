@@ -19,7 +19,8 @@
 }
 
 .quarto-title-banner {
-  padding-top: 62px; /* Adjust this value to match the height of your navbar */
+  /*padding-top: 62px;  Adjust this value to match the height of your navbar */
+  padding-top: 40px;
 }
 
 main {
