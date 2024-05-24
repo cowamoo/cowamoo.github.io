@@ -31,5 +31,9 @@ figcaption {
 }
 
 .social-share {
-  float: right;
+  justify-content: space-between;
+}
+
+a.nav-link {
+  target: _blank;
 }
