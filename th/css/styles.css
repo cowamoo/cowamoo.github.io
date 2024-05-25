@@ -35,4 +35,17 @@ figcaption {
   justify-content: space-evenly;
 }
 
+/* Desktop styles */
+@media (min-width: 768px) {
+  figcaption {
+    font-size: 426px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  figcaption {
+    font-size: inherit; /* Use the same font size as the body text */
+  }
+}
 
