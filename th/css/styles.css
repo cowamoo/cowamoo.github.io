@@ -28,7 +28,7 @@ main {
 }
 
 figcaption {
-  text-align: center;
+  text-align: left;
 }
 
 .social-share {
@@ -37,7 +37,7 @@ figcaption {
 
 /* Desktop styles */
 @media (min-width: 768px) {
-  figcaption {
+  .panel-caption {
     width: 500px;
     margin: 0 auto;
   }
@@ -45,7 +45,7 @@ figcaption {
 
 /* Mobile styles */
 @media (max-width: 767px) {
-  figcaption {
+  .panel-caption {
     width: auto;
   }
 }
