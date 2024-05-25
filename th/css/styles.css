@@ -38,14 +38,14 @@ figcaption {
 /* Desktop styles */
 @media (min-width: 768px) {
   figcaption {
-    font-size: 426px;
+    width: 500px;
+    margin: 0 auto;
   }
 }
 
 /* Mobile styles */
 @media (max-width: 767px) {
   figcaption {
-    font-size: inherit; /* Use the same font size as the body text */
+    width: auto;
   }
 }
-
