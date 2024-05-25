@@ -37,7 +37,7 @@ figcaption {
 
 /* Desktop styles */
 @media (min-width: 768px) {
-  .panel-caption {
+  figcaption {
     width: 500px;
     margin: 0 auto;
   }
@@ -45,7 +45,7 @@ figcaption {
 
 /* Mobile styles */
 @media (max-width: 767px) {
-  .panel-caption {
+  figcaption {
     width: auto;
   }
 }
