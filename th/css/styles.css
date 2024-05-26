@@ -19,8 +19,7 @@
 }
 
 .quarto-title-banner {
-  /*padding-top: 62px;  Adjust this value to match the height of your navbar */
-  padding-top: 65px;
+  padding-top: 62px; /* Adjust this value to match the height of your navbar */
 }
 
 main {
@@ -34,6 +33,7 @@ figcaption {
 .social-share {
   justify-content: space-evenly;
 }
+
 
 /* Desktop styles */
 @media (min-width: 768px) {
@@ -50,8 +50,10 @@ figcaption {
   }
 }
 
+.quarto-title-block .quarto-title-banner {
+  background: #4682B4;
+}
+
 .navbar-dark {
   background-color: #4682B4;
 }
-
-
