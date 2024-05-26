@@ -9,7 +9,6 @@
 
 .navbar-title {
   font-family: 'ZTChintzy', sans-serif;
-  background-color: #4682B4;
 }
 
 .navbar {
@@ -53,4 +52,8 @@ figcaption {
 
 .quarto-title-block .quarto-title-banner {
   background: #4682B4;
+}
+
+.navbar-dark {
+  background-color: #4682B4;
 }

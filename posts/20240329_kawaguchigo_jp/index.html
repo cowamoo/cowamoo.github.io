@@ -118,6 +118,97 @@ gtag('config', 'G-D5RWZ9VFH7', { 'anonymize_ip': true});
 <script>
 // Custom Script 
 
+// Helper function to determine if the device is mobile
+function isMobileDevice() {
+  return ('ontouchstart' in window || navigator.maxTouchPoints) && /Mobi|Android/i.test(navigator.userAgent);
+}
+
+// Function to initialize the panoramic view
+function initPanoramicView() {
+  const images = document.querySelectorAll('img');
+  images.forEach((image) => {
+    if (image.clientWidth > 700) {
+      createPanoramicContainer(image);
+    }
+  });
+}
+
+// Function to create the panoramic container
+function createPanoramicContainer(image) {
+  const isMobile = isMobileDevice();
+  const containerWidth = isMobile ? 426 : 640;
+  const containerHeight = '100%';
+  const offsetX = (image.clientWidth - containerWidth) / 2;
+
+  // Create a container for the panoramic view
+  const container = document.createElement('div');
+  container.style.width = `${containerWidth}px`;
+  container.style.height = containerHeight;
+  container.style.overflow = 'hidden';
+  container.style.position = 'relative';
+  container.style.touchAction = 'none'; // Disable default touch actions
+
+  // Clone the image and adjust its position
+  const panoramicImage = image.cloneNode();
+  panoramicImage.style.position = 'absolute';
+  panoramicImage.style.left = `-${offsetX}px`;
+  panoramicImage.style.top = '0';
+  panoramicImage.style.width = `${image.clientWidth}px`;
+  panoramicImage.style.height = `${image.clientHeight}px`;
+
+  // Add the image to the container
+  container.appendChild(panoramicImage);
+
+  // Replace the original image with the container
+  image.parentNode.replaceChild(container, image);
+
+  // Event listeners for dragging
+  let isDragging = false;
+  let startX = 0;
+
+  const startDrag = (pageX) => {
+    isDragging = true;
+    startX = pageX - panoramicImage.offsetLeft;
+    container.style.cursor = 'grabbing';
+  };
+
+  const doDrag = (pageX) => {
+    if (isDragging) {
+      const newPosition = pageX - startX;
+      panoramicImage.style.left = `${newPosition}px`;
+    }
+  };
+
+  const endDrag = () => {
+    isDragging = false;
+    container.style.cursor = 'grab';
+  };
+
+  // Desktop events
+  container.addEventListener('mousedown', (e) => startDrag(e.pageX));
+  window.addEventListener('mousemove', (e) => doDrag(e.pageX));
+  window.addEventListener('mouseup', endDrag);
+
+  // Mobile events
+  container.addEventListener('touchstart', (e) => startDrag(e.touches[0].pageX));
+  container.addEventListener('touchmove', (e) => doDrag(e.touches[0].pageX));
+  container.addEventListener('touchend', endDrag);
+
+  // Gyroscope events for mobile devices
+  if (isMobile) {
+    window.addEventListener('deviceorientation', (e) => {
+      const gamma = e.gamma; // Left to right tilt in degrees
+      if (Math.abs(gamma) > 5) {
+        const tiltOffset = gamma * 5; // Adjust sensitivity as needed
+        const currentLeft = parseInt(panoramicImage.style.left, 10);
+        panoramicImage.style.left = `${Math.max(Math.min(currentLeft + tiltOffset, 0), containerWidth - image.clientWidth)}px`;
+      }
+    });
+  }
+}
+
+// Initialize the panoramic view when the document is loaded
+document.addEventListener('DOMContentLoaded', initPanoramicView);
 
 
 </script>
