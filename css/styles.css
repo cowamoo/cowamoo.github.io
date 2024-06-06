@@ -23,6 +23,10 @@
 }
 
 main {
+  text-align: justify;
+}
+
+h3 {
   text-align: left;
 }
 
